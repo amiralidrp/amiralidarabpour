@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+
+<script type="text/javascript">
+function start() {
+
+
+var max=prompt("How many rows of multiplication would you like?");
+
+var table= document.getElementById("myTable");
+
+var row2add="",finalTable="";
+
+for (var x=1; x< max; x++)
+{
+	row2add="<tr>";
+
+	for (var y=1; y<=max; y++)
+	{
+		row2add += "<td>" + x*y + "</td>";
+	}
+	row2add += "</tr>";
+	finalTable += row2add;
+}
+
+table.innerHTML = finalTable;
+
+
+var rows=table.childNodes;
+var data;
+
+for (var z=0; z<rows.length; z++)
+{
+	if (z%2 ==0)
+		rows[z].setAttribute("class","even");
+	else
+		rows[z].setAttribute("class","odd");
+
+	data=rows[z].childNodes;
+
+	for (var q=0; q<max; q++)
+	{
+		if (q%2 ==0)
+			data[q].setAttribute("class","even");
+		else
+			data[q].setAttribute("class","odd");
+	}
+}
+
+} //end function start
+
+window.onload= start;
+</script>
+<style type="text/css">
+td { margin: 3px;
+width: 3px;
+padding-left: 4px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+	<table>
+		<tbody id="myTable">
+		</tbody>
+	</table>
+
+</body>
+
+</html>
